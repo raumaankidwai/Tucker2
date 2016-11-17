@@ -147,7 +147,7 @@ var commands = {
     }
   },
   afk (message) {
-    // message.channel.
+    // message.channel. (WIP)
   },
   avatar (message) {
     if (message.mentions.users && message.mentions.users[0].id !== message.author.id) {
