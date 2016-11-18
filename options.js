@@ -1,5 +1,5 @@
 // The bot token goes here: (This one will not work, at least I don't think it will)
-exports.token = 'MjM2MjY5NTgyNjMxOTYwNTc3.CuVInQ.qn_p4EkDqZGKaoYynvm2loYe8Po'
+exports.token = 'MjM2MjY5NTgyNjMxOTYwNTc3.CxCUjA.pVr2wXE8eFYfue2_jUnApGCV1zs'
 // This is the prefix that you'll use on all commands. Default: '++'
 exports.prefix = '++'
 

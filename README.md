@@ -7,6 +7,10 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 ### Now available to use on...
 ...ANY discord server (with a bit of configuration, hehe).
 
+## Dependencies
+* Node.js
+(wip)
+
 ## Stuff
 * [Team Members](#team-members)
 * [Commands](#commands)
