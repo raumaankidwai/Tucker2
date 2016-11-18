@@ -7,20 +7,20 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 ### Now available to use on...
 ...ANY discord server (with a bit of configuration, hehe).
 
-# Stuff
+## Stuff
 * [Team Members](#team-members)
 * [Commands](#commands)
 * [Personal Setup](#personal-setup)
 * [Personal Commands](#personal-commands)
 
-# Team Members
+## Team Members
 (Or people who have helped a lot to develop the bot)
 * BlazeProgramming
 * KingCodeFish
 * Raumaankidwai
 * EytukanStudios
 
-# Commands
+## Commands
 * startshow
 * endshow
 * statistics
@@ -43,8 +43,8 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 * object
 * word
 
-# Personal Setup
+## Personal Setup
 (wip)
 
-# Personal Commands
+## Personal Commands
 (wip)
