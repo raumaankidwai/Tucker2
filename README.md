@@ -27,27 +27,36 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 * EytukanStudios
 
 ## Commands
-* startshow
-* endshow
-* statistics
-* addguest
-* remguest
-* help
-* kill
-* afk
-* avatar
-* delete
-* deleteUser
-* tr8r
-* tuckerfacts
-* 8ball
-* cat
-* dog
-* join
-* leave
-* submit
-* object
-* word
+* Talkshow Commands
+  * startshow
+  * endshow
+  * statistics
+  * addguest
+  * remguest
+* Functionality
+  * help
+  * kill
+  * afk
+  * avatar
+  * delete
+  * deleteUser
+* Fun
+  * tr8r
+  * tuckerfacts
+  * 8ball
+  * cat
+  * dog
+* Word game (WIP)
+  * join
+  * leave
+  * submit
+  * object
+  * word
+* Quotes (WIP)
+  * .
+  * ..
+  * ...
+  * ....
 
 ## Personal Setup
 (wip more)
