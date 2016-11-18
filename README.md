@@ -10,8 +10,8 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 
 ## Dependencies
 * [Node.js](https://nodejs.org/)
-** [discord.js](https://github.com/hydrabolt/discord.js/)
-** [request](https://www.npmjs.com/package/request)
+* [discord.js](https://github.com/hydrabolt/discord.js/)
+* [request](https://www.npmjs.com/package/request)
 
 ## Stuff
 * [Team Members](#team-members)
