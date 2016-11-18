@@ -9,8 +9,9 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 ...ANY discord server (with a bit of configuration, hehe).
 
 ## Dependencies
-* Node.js
-(wip)
+* [Node.js](https://nodejs.org/)
+** [discord.js](https://github.com/hydrabolt/discord.js/)
+** [request](https://www.npmjs.com/package/request)
 
 ## Stuff
 * [Team Members](#team-members)
