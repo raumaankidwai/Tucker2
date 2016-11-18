@@ -199,6 +199,22 @@ var commands = {
       message.channel.sendMessage('Promised and returned.')
     })
   },
+  editTest (message) {
+    message.channel.sendMessage('1')
+      .then(DelayPromise(1000))
+        .then((message) => {
+          message.edit('2')
+          .then(DelayPromise(1000))
+            .then((message) => {
+              message.edit('3')
+                .then(DelayPromise(1000))
+                  .then((message) => {
+                    message.edit('4')
+                      // hmm I need to figure out how to recursion this baby
+                  })
+            })
+        })
+  },
   deleteTest (message) {
     // this is mostly a test of promises. I didn't know how to use them before.
     message.channel.sendMessage('regequit')

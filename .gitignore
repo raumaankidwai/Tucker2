@@ -1,5 +1,6 @@
 # System Files
 .DS_Store
+.jshintrc
 
 # Personal Files
 syntaxExample.tuc3
