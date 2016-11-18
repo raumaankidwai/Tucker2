@@ -1,6 +1,7 @@
 # Tucker2
 A made-from-scratch easy-to-use Discord bot with too many hyphens.
 
+![Dependencies](https://david-dm.org/BlazeProgramming/Tucker2.svg)
 ### Originally created by BlazeProgramming...
 ...for use on the Khan Academy Discord Server, with many Khan-Academy-specific commands.
 
