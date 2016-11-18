@@ -358,6 +358,11 @@ var commands = {
   }
 }
 
+for (var i in options.commands) {
+  if (commands[i]) commands['_' + i] = options.commands[i]
+  else commands[i] = options.commands[i]
+}
+
 Client.on('message', (message) => {
   try {
     var content = message.content

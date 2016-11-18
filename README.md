@@ -50,7 +50,7 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 * word
 
 ## Personal Setup
-(wip)
+(wip more)
 
 ## Personal Commands
 You can add your own commands using a (WIP, lol) system from options.js.
