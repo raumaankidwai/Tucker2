@@ -3,6 +3,9 @@ exports.token = 'MjM2MjY5NTgyNjMxOTYwNTc3.CxCUjA.pVr2wXE8eFYfue2_jUnApGCV1zs'
 // This is the prefix that you'll use on all commands. Default: '++'
 exports.prefix = '++'
 
+// This is the argument separator. Choose wisely.
+exports.separator = '|'
+
 // This is the talkshow channel, the one that you can make talkshows in. :P
 exports.talkshowChannel = '241950128821370880'
 
