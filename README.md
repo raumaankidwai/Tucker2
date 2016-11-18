@@ -53,4 +53,19 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 (wip)
 
 ## Personal Commands
-(wip)
+You can add your own commands using a (WIP, lol) system from options.js.
+
+Begin with your function name. I'll use `test` for simplicity. My code will be as follows:
+```javascript
+exports.commands = {
+
+  // [...]
+
+  test () {
+
+  }
+
+  // [...]
+
+}```
+(closer)

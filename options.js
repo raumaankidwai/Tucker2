@@ -42,5 +42,12 @@ exports.ballResponses = [
 exports.loggingChannel = '211634505562324992'
 exports.welcomeChannel = '229655019467702273'
 
+// User commands:
+exports.commands = {
+  testExported (message, args) {
+    message.channel.sendMessage('Tested.')
+  }
+}
+
 // ADVANCED OPTIONS FOR ADVANCED PEOPLE WHO ARE TUCKER PROFICIENT
 exports.jsonFile = 'data.json'
