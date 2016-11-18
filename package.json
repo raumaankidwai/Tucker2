@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=6.0.0",
   },
-  "peerDependencies": {
+  "dependencies": {
     "discord.js": "10.0.1",
     "request": "2.78.0"
   }
