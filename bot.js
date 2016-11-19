@@ -373,7 +373,7 @@ Client.on('message', (message) => {
     for (var i in commands) {
       if (!hasAlreadyRunCommand) {
         if (typeof commands[i] !== 'function') continue
-        if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i))) {
+        if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i + ' '))) {
           var args = content.substr((i.startsWith('.') ? (i + ' ') : (options.prefix + i)).length + 1, content.length).split(options.separator)
           for (var j = 0; j < args.length; j++) {
             args[j] = args[j].trim()
