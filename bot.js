@@ -160,12 +160,16 @@ var commands = {
     var number = args[0] * 1
     if (isNaN(number)) {
       message.channel.sendMessage('Dat not a number')
+        .then(() => {
+          message.delete()
+        })
     } else {
       message.channel.fetchMessages({limit: number})
         .then((messages) => {
-          for (let i = 0; i < messages.array.length; i++) {
-            messages.array[i].delete()
-          }
+          messages.deleteAll()
+        })
+        .then(() => {
+          message.delete()
         })
     }
   },
@@ -191,6 +195,7 @@ var commands = {
     message.channel.sendMessage(`The first argument is ${args[0]}, and the second argument is ${args[1]}, and the third is ${args[2]}`)
   },
   pm (message, args) {
+    args[0] = args[0].replace(/\`/gim, '')
     message.author.sendMessage('You wanted me to send you the following: ```' + args[0] + '```')
   },
   sendTest (message) {
