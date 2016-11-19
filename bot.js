@@ -152,8 +152,9 @@ var commands = {
     // message.channel. (WIP)
   },
   avatar (message) {
-    if (message.mentions.users && message.mentions.users[0].id !== message.author.id) {
-      message.channel.sendMessage('Their avatar is ' + message.mentions.users[0].avatarURL)
+    console.log(message.mentions.users.first())
+    if (message.mentions.users.first() && message.mentions.users.first().id !== message.author.id) {
+      message.channel.sendMessage('Their avatar is ' + message.mentions.users.first().avatarURL)
     } else {
       message.channel.sendMessage('Your avatar is ' + message.author.avatarURL)
     }
@@ -173,23 +174,6 @@ var commands = {
         })
         .then(() => {
           message.delete()
-        })
-        .catch(message.channel.sendMessage)
-    }
-  },
-  deleteUser (message, args) {
-    var user = message.mentions[0]
-    var number = args[1] * 1
-    if (isNaN(number)) {
-      message.channel.sendMessage('Dat not a number')
-    } else {
-      message.channel.fetchMessages({limit: number})
-        .then((messages) => {
-          for (let i = 0; i < messages.array.length; i++) {
-            if (messages.array[i].author.id === user.id) {
-              messages.array[i].delete()
-            }
-          }
         })
         .catch(message.channel.sendMessage)
     }
@@ -384,7 +368,7 @@ Client.on('message', (message) => {
     for (var i in commands) {
       if (!hasAlreadyRunCommand) {
         if (typeof commands[i] !== 'function') continue
-        if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i + ' '))) {
+        if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i + (commands[i].toString().includes('args') ? ' ' : '')))) {
           var args = content.substr((i.startsWith('.') ? (i + ' ') : (options.prefix + i)).length + 1, content.length).split(options.separator)
           for (var j = 0; j < args.length; j++) {
             args[j] = args[j].trim()
@@ -395,7 +379,7 @@ Client.on('message', (message) => {
       }
     }
   } catch (e) {
-    message.channel.sendMessage('Error: ' + e)
+    message.channel.sendMessage('Error: ```javascript\n' + e + '```')
   }
 })
 
