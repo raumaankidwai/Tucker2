@@ -74,7 +74,7 @@ var commands = {
           SEND_MESSAGES: true
         }).then(() => {
           message.channel.sendMessage('Cool! You have an hour to do your show. Let\'s GO!')
-        }).catch((e) => { message.channel.sendMessage(e) })
+        }).catch(message.channel.sendMessage)
       } else {
         message.channel.sendMessage('I\'m afraid that you aren\'t allowed to have a show :sob:\nAsk Blaze if you would like one!')
       }
@@ -96,7 +96,7 @@ var commands = {
           .then(() => {
             message.channel.sendMessage('Show stopped! Come again next time! :smile:')
           })
-            .catch((e) => { message.channel.sendMessage(e) })
+            .catch(message.channel.sendMessage)
       } else {
         message.channel.sendMessage('You cannot stop a show if it is not yours.')
       }
@@ -165,7 +165,7 @@ var commands = {
         .then(() => {
           message.delete()
         })
-          .catch((e) => { message.channel.sendMessage(e) })
+          .catch(message.channel.sendMessage)
     } else {
       message.channel.fetchMessages({limit: number})
         .then((messages) => {
@@ -174,7 +174,7 @@ var commands = {
         .then(() => {
           message.delete()
         })
-        .catch((e) => { message.channel.sendMessage(e) })
+        .catch(message.channel.sendMessage)
     }
   },
   deleteUser (message, args) {
@@ -191,7 +191,7 @@ var commands = {
             }
           }
         })
-        .catch((e) => { message.channel.sendMessage(e) })
+        .catch(message.channel.sendMessage)
     }
   },
 
@@ -202,7 +202,7 @@ var commands = {
   pm (message, args) {
     args[0] = args[0].replace(/\`/gim, '')
     message.author.sendMessage('You wanted me to send you the following: ```' + args[0] + '```')
-      .catch((e) => { message.channel.sendMessage(e) })
+      .catch(message.channel.sendMessage)
   },
   sendTest (message) {
     message.channel.sendMessage('Test')
