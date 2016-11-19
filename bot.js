@@ -50,7 +50,7 @@ var stripIDFromMention = (str) => {
 }
 
 /* OTHER FUNCTIONS/VARIABLES */
-function DelayPromise (delay) {
+var DelayPromise = function (delay) {
   return function (data) {
     return new Promise(function (resolve, reject) {
       setTimeout(function () {
@@ -74,7 +74,7 @@ var commands = {
           SEND_MESSAGES: true
         }).then(() => {
           message.channel.sendMessage('Cool! You have an hour to do your show. Let\'s GO!')
-        })
+        }).catch((e) => { message.channel.sendMessage(e) })
       } else {
         message.channel.sendMessage('I\'m afraid that you aren\'t allowed to have a show :sob:\nAsk Blaze if you would like one!')
       }
@@ -92,9 +92,11 @@ var commands = {
         elapsedseconds = 0
         Client.channels.get(options.talkshowChannel).overwritePermissions(message.author, {
           SEND_MESSAGES: false
-        }).then(() => {
-          message.channel.sendMessage('Show stopped! Come again next time! :smile:')
         })
+          .then(() => {
+            message.channel.sendMessage('Show stopped! Come again next time! :smile:')
+          })
+            .catch((e) => { message.channel.sendMessage(e) })
       } else {
         message.channel.sendMessage('You cannot stop a show if it is not yours.')
       }
@@ -163,6 +165,7 @@ var commands = {
         .then(() => {
           message.delete()
         })
+          .catch((e) => { message.channel.sendMessage(e) })
     } else {
       message.channel.fetchMessages({limit: number})
         .then((messages) => {
@@ -171,6 +174,7 @@ var commands = {
         .then(() => {
           message.delete()
         })
+        .catch((e) => { message.channel.sendMessage(e) })
     }
   },
   deleteUser (message, args) {
@@ -187,6 +191,7 @@ var commands = {
             }
           }
         })
+        .catch((e) => { message.channel.sendMessage(e) })
     }
   },
 
@@ -197,6 +202,7 @@ var commands = {
   pm (message, args) {
     args[0] = args[0].replace(/\`/gim, '')
     message.author.sendMessage('You wanted me to send you the following: ```' + args[0] + '```')
+      .catch((e) => { message.channel.sendMessage(e) })
   },
   sendTest (message) {
     message.channel.sendMessage('Test')
