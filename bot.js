@@ -171,9 +171,11 @@ var commands = {
       message.channel.fetchMessages({limit: number})
         .then((messages) => {
           messages.deleteAll()
+            .catch(message.channel.sendMessage)
         })
         .then(() => {
           message.delete()
+            .catch(message.channel.sendMessage)
         })
         .catch(message.channel.sendMessage)
     }
@@ -369,6 +371,7 @@ Client.on('message', (message) => {
       if (!hasAlreadyRunCommand) {
         if (typeof commands[i] !== 'function') continue
         if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i + (commands[i].toString().includes('args') ? ' ' : '')))) {
+          console.log(commands[i].toString().includes('args'))
           var args = content.substr((i.startsWith('.') ? (i + ' ') : (options.prefix + i)).length + 1, content.length).split(options.separator)
           for (var j = 0; j < args.length; j++) {
             args[j] = args[j].trim()

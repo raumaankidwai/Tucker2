@@ -39,7 +39,6 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
   * afk
   * avatar
   * delete
-  * deleteUser
 * Fun
   * tr8r
   * tuckerfacts
