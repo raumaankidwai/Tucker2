@@ -197,20 +197,17 @@ var commands = {
     })
   },
   editTest (message) {
-    message.channel.sendMessage('1')
-      .then(DelayPromise(1000))
-        .then((message) => {
-          message.edit('2')
-          .then(DelayPromise(1000))
-            .then((message) => {
-              message.edit('3')
-                .then(DelayPromise(1000))
-                  .then((message) => {
-                    message.edit('4')
-                      // hmm I need to figure out how to recursion this baby
-                  })
-            })
-        })
+    var counter = 1;
+    
+    function editRecursor (promise) {
+      if (counter < 4) {
+        promise.then(DelayPromise(1000)).then((message) => edit(message.edit("" + (++ counter))));
+      } else {
+        message.edit("Done!");
+      }
+    }
+    
+    editRecursor(message.channel.sendMessage('1'));
   },
   deleteTest (message) {
     // this is mostly a test of promises. I didn't know how to use them before.
