@@ -201,7 +201,7 @@ var commands = {
     
     function editRecursor (promise) {
       if (counter < 4) {
-        promise.then(DelayPromise(1000)).then((message) => edit(message.edit("" + (++ counter))));
+        promise.then(DelayPromise(1000)).then((message) => editRecursor(message.edit("" + (++ counter))));
       } else {
         message.edit("Done!");
       }
