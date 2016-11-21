@@ -197,17 +197,15 @@ var commands = {
     })
   },
   editTest (message) {
-    var counter = 1;
-    
+    var counter = 1
     function editRecursor (promise) {
       if (counter < 4) {
-        promise.then(DelayPromise(1000)).then((message) => editRecursor(message.edit("" + (++ counter))));
+        promise.then(DelayPromise(1000)).then((message) => editRecursor(message.edit('' + (++counter))))
       } else {
-        message.edit("Done!");
+        message.edit('Done!')
       }
     }
-    
-    editRecursor(message.channel.sendMessage('1'));
+    editRecursor(message.channel.sendMessage('1'))
   },
   deleteTest (message) {
     // this is mostly a test of promises. I didn't know how to use them before.
