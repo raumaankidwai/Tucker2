@@ -12,6 +12,7 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
 * [Node.js](https://nodejs.org/)
 * [discord.js](https://github.com/hydrabolt/discord.js/)
 * [request](https://www.npmjs.com/package/request)
+* [homoglyph-search](https://www.npmjs.com/package/homoglyph-search)
 
 ## Stuff
 * [Team Members](#team-members)

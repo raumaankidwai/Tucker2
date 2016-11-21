@@ -4,11 +4,17 @@ written by Blaze over the course of a week or so ;)
 */
 
 /* MODULES */
+
+// Global dependencies
 const Discord = require('discord.js')
 const fs = require('fs')
 const request = require('request')
+const homoglyph = require('homoglyph-search')
 const Client = new Discord.Client()
+
+// Local dependencies
 const options = require('./options.js')
+const bad = require('./badwords.js')
 
 /* TALKSHOW */
 var showing = false
@@ -358,6 +364,9 @@ for (var i in options.commands) {
 Client.on('message', (message) => {
   try {
     var content = message.content
+    if (homoglyph.search(message.content, bad.kick) || homoglyph.search(message.content, bad.ban)) {
+      message.delete()
+    }
     var hasAlreadyRunCommand = false
     if (message.author.id !== Client.user.id) {
       Client.channels.get(options.loggingChannel).sendMessage('\uD83D\uDD51 **' + message.author.username + '#' + message.author.discriminator + '** said ```' + message.cleanContent.replace(/`/gim, '') + '``` in `#' + message.channel.name + '`')
