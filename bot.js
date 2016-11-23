@@ -364,8 +364,15 @@ for (var i in options.commands) {
 Client.on('message', (message) => {
   try {
     var content = message.content
-    if (homoglyph.search(message.content, bad.kick) || homoglyph.search(message.content, bad.ban)) {
-      message.delete()
+    if (homoglyph.search(message.content, bad.words).length > 0) {
+      message.channel.sendMessage(message.author)
+        .then((sentMessage) => {
+          sentMessage.edit('Please watch your language.')
+            .then(() => {
+              message.delete()
+              sentMessage.delete(2000)
+            })
+        })
     }
     var hasAlreadyRunCommand = false
     if (message.author.id !== Client.user.id) {
@@ -375,7 +382,6 @@ Client.on('message', (message) => {
       if (!hasAlreadyRunCommand) {
         if (typeof commands[i] !== 'function') continue
         if (content.startsWith(i.startsWith('.') ? (i + ' ') : (options.prefix + i + (commands[i].toString().includes('args') ? ' ' : '')))) {
-          console.log(commands[i].toString().includes('args'))
           var args = content.substr((i.startsWith('.') ? (i + ' ') : (options.prefix + i)).length + 1, content.length).split(options.separator)
           for (var j = 0; j < args.length; j++) {
             args[j] = args[j].trim()
