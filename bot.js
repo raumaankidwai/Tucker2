@@ -237,7 +237,7 @@ var commands = {
     // Because this command is irregular in that it cannot be expressed in literal JavaScript without causing an error, the syntax has been changed slightly for this and the next few commands.
     message.channel.sendMessage('```' + options.ballResponses[Math.floor(Math.random() * options.ballResponses.length)] + '```')
   },
-  cat: (message) => {
+  cat (message) {
     message.channel.sendMessage('Loading...')
       .then((createdMessage) => {
         request('http://www.random.cat/meow', (error, response, body) => {
@@ -251,13 +251,24 @@ var commands = {
         })
       })
   },
-  dog: (message) => {
+  dog (message) {
     request('http://www.random.dog/woof', (error, response, body) => {
       if (!error && response.statusCode * 1 === 200) {
         console.log(body)
         message.channel.sendMessage(`http://www.random.dog/${body}`)
       }
     })
+  },
+  wordInfo (message, args) {
+    var word = {
+      literal: args[0].replace(/\d|\n/gim, ''),
+      length: this.literal.length,
+      vowels: this.literal.find((x) => (/[aeiouy]/gi).exec(x) === true),
+      consonants: this.literal.find((x) => (/[^aeiouy]/gi).exec(x) === true),
+      removeRepeated: this.literal.replace(/(\w)+/gim, '$1'),
+      score: this.length + this.vowels.length - (this.consonants.length / this.length) - this.removeRepeated.length
+    }
+    message.channel.sendMessage(`***${word.literal}***\n • Word length: \`${word.length}\`\n • Number of vowels: \`${word.vowels.length}\`\n • Number of consonants: \`${word.consonants.length}\``)
   },
 
   // game commands
@@ -364,19 +375,19 @@ for (var i in options.commands) {
 Client.on('message', (message) => {
   try {
     var content = message.content
-    if (homoglyph.search(message.content, bad.words).length > 0) {
-      message.channel.sendMessage(message.author)
-        .then((sentMessage) => {
-          sentMessage.edit('Please watch your language.')
-            .then(() => {
-              message.delete()
-              sentMessage.delete(2000)
-            })
-        })
-    }
     var hasAlreadyRunCommand = false
     if (message.author.id !== Client.user.id) {
       Client.channels.get(options.loggingChannel).sendMessage('\uD83D\uDD51 **' + message.author.username + '#' + message.author.discriminator + '** said ```' + message.cleanContent.replace(/`/gim, '') + '``` in `#' + message.channel.name + '`')
+      if (homoglyph.search(message.content, bad.words).length > 0) {
+        message.channel.sendMessage(message.author)
+          .then((sentMessage) => {
+            sentMessage.edit('Please watch your language.')
+              .then(() => {
+                message.delete()
+                sentMessage.delete(2000)
+              })
+          })
+      }
     }
     for (var i in commands) {
       if (!hasAlreadyRunCommand) {
@@ -393,7 +404,12 @@ Client.on('message', (message) => {
     }
   } catch (e) {
     message.channel.sendMessage('Error: ```javascript\n' + e + '```')
+    console.log(e)
   }
+})
+
+Client.on('messageDeleted', (message) => {
+  Client.channels.get(options.loggingChannel).sendMessage('\uD83D\uDD51 **' + message.author.username + '#' + message.author.discriminator + '** said ```' + message.cleanContent.replace(/`/gim, '') + '``` in `#' + message.channel.name + '`')
 })
 
 Client.on('serverNewMember', (server, member) => {
