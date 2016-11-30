@@ -48,8 +48,8 @@ var readable = function (o) {
 		return 778;
 	}
 	
-	return (o.owner === user() && floor(o.perms / 100) > 3) ||
-		(o.owner !== user() && o.group.indexOf(user()) > -1 && floor((o.perms % 100) / 10) > 3) ||
+	return (o.owner === user() && Math.floor(o.perms / 100) > 3) ||
+		(o.owner !== user() && o.group.indexOf(user()) > -1 && Math.floor((o.perms % 100) / 10) > 3) ||
 		(o.owner !== user() && o.group.indexOf(user()) < 0 && (o.perms % 10) > 3);
 };
 // Takes file/directory object, returns boolean corresponding to if user has write access to directory / file. If non-existent, return 778.
@@ -58,8 +58,8 @@ var writable = function (o) {
 		return 778;
 	}
 	
-	return (o.owner === user() && (floor(o.perms / 100) % 4) > 1) ||
-		(o.owner !== user() && o.group.indexOf(user()) > -1 && (floor((o.perms % 100) / 10) % 4) > 1) ||
+	return (o.owner === user() && (Math.floor(o.perms / 100) % 4) > 1) ||
+		(o.owner !== user() && o.group.indexOf(user()) > -1 && (Math.floor((o.perms % 100) / 10) % 4) > 1) ||
 		(o.owner !== user() && o.group.indexOf(user()) < 0 && ((o.perms % 10) % 4) > 1);
 };
 // Takes file/directory object, returns boolean corresponding to if user has exec access to directory / file. If non-existent, return 778.
@@ -68,8 +68,8 @@ var executable = function (o) {
 		return 778;
 	}
 	
-	return (o.owner === user() && (floor(o.perms / 100) % 2) > 0) ||
-		(o.owner !== user() && o.group.indexOf(user()) > -1 && (floor((o.perms % 100) / 10) % 2) > 0) ||
+	return (o.owner === user() && (Math.floor(o.perms / 100) % 2) > 0) ||
+		(o.owner !== user() && o.group.indexOf(user()) > -1 && (Math.floor((o.perms % 100) / 10) % 2) > 0) ||
 		(o.owner !== user() && o.group.indexOf(user()) < 0 && ((o.perms % 10) % 2) > 0);
 };
 // Takes path array, returns file or directory object. If not allowed, return 1. If non-existent, return 2.
