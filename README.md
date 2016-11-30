@@ -40,6 +40,8 @@ A made-from-scratch easy-to-use Discord bot with too many hyphens.
   * afk
   * avatar
   * delete
+* Bash Shell
+  * shell (courtesy of Raumaankidwai)
 * Fun
   * tr8r
   * tuckerfacts
