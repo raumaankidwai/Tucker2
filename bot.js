@@ -12,6 +12,8 @@ const request = require('request')
 const homoglyph = require('homoglyph-search')
 const Client = new Discord.Client()
 
+var kash = require('./kanix.js')
+
 // Local dependencies
 const options = require('./options.js')
 const bad = require('./badwords.js')
@@ -67,6 +69,9 @@ var DelayPromise = function (delay) {
 } // from https://blog.raananweber.com/2015/12/01/writing-a-promise-delayer/
 
 var commands = {
+  shell (message, args) {
+    message.channel.sendMessage("\`\`\`\n" + kash(args.join(" ")) + "\`\`\`")
+  }
   // talkshow commands
   startshow (message, args) {
     if (!showing) {
