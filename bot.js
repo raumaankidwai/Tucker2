@@ -32,6 +32,9 @@ var pastWords = []
 var turn = 0
 var objected = 0
 
+/* PUT SOMETHING IN HERE; TEMPORARY FIX FOR HUGE SECURITY HOLE */
+var isModerator = (author) => false;
+
 /* DATA RECEIVAL/DISTRIBUTION */
 var sendDataToFile = (index, datum, callback) => {
   fs.readFile(options.jsonFile, {encoding: 'utf8'}, (error, individualData) => {
@@ -171,6 +174,8 @@ var commands = {
     }
   },
   'delete': (message, args) => {
+    if (!isModerator(message.author)) return;
+    
     var number = args[0] * 1
     if (isNaN(number)) {
       message.channel.sendMessage('Dat not a number')
