@@ -107,13 +107,13 @@ $ npm install request
 $ npm install homoglyph-search
 ```
 
-In the future, you'll be able to simply `npm install`. I simply haven't been able to figure out the `package.json` dependencies.
+13. In the future, you'll be able to simply `npm install`. I simply haven't been able to figure out the `package.json` dependencies.
 
-13. ```Bash
+14. ```Bash
 $ node bot.js
 ```
 
-14. And you're done! Your Tucker instance should come online and should be ready for meeting your command-y needs!
+15. And you're done! Your Tucker instance should come online and should be ready for meeting your command-y needs!
 
 ## Personal Commands
 You can add your own commands using a system from options.js.
