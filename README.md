@@ -107,9 +107,10 @@ $ npm install request
 $ npm install homoglyph-search
 ```
 
-In the future, you'll be able to simply `npm install`. I simply haven't been able to figure out the `package.json` dependencies.
 
-13. ```Bash
+13. In the future, you'll be able to simply `npm install`. I simply haven't been able to figure out the `package.json` dependencies.
+
+14. ```Bash
 $ node bot.js
 ```
 
